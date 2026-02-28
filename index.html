@@ -8,11 +8,11 @@
     <meta name="description"
         content="Descubre el arte del macramé de lujo con Shexzit Arte. Joyería artesanal hecha a mano con hilos premium y piedras preciosas.">
 
-    <!-- Google Fonts: Public Sans & Manrope -->
+    <!-- Google Fonts: Playfair Display (Luxury) & Inter (Modern) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Public+Sans:wght@100..900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap"
         rel="stylesheet">
 
     <!-- Material Symbols -->
@@ -29,17 +29,15 @@
                 extend: {
                     colors: {
                         "primary": "#ec5b13",
-                        "brand-beige": "#fdfbf7",
+                        "brand-beige": "#FBF9F6",
                         "brand-taupe": "#fcfaf8",
-                        "brand-dark": "#1a1a1a",
-                        "brand-grey": "#6b7280",
+                        "brand-dark": "#0F0F0F",
+                        "brand-grey": "#666666",
                     },
                     fontFamily: {
-                        "sans": ["Manrope", "sans-serif"],
-                        "display": ["Public Sans", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "custom": "8px",
+                        "sans": ["Inter", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
+                        "display": ["Playfair Display", "serif"]
                     },
                 },
             },
@@ -52,51 +50,74 @@
         }
 
         body {
-            background-color: #fdfbf7;
-            color: #1a1a1a;
+            background-color: #FBF9F6;
+            color: #0F0F0F;
             scroll-behavior: smooth;
         }
 
         .hero-title {
-            font-size: clamp(3rem, 12vw, 10rem);
-            line-height: 0.9;
-            letter-spacing: -0.04em;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3.5rem, 12vw, 11rem);
+            line-height: 0.85;
+            letter-spacing: -0.05em;
         }
 
         .glass-header {
-            background: rgba(253, 251, 247, 0.8);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .premium-gradient {
-            background: linear-gradient(135deg, #ec5b13 0%, #ff8c42 100%);
-        }
-
-        .section-number {
-            font-family: 'Public Sans', sans-serif;
-            font-weight: 900;
-            opacity: 0.05;
-            font-size: 15vw;
-            line-height: 1;
-            position: absolute;
-            z-index: 0;
-            pointer-events: none;
+            background: rgba(251, 249, 246, 0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
         }
 
         .hover-lift {
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         .hover-lift:hover {
-            transform: translateY(-8px);
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
         }
 
-        /* Micro-animations */
+        /* Skeleton Loader */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+        }
+
+        @keyframes skeleton-loading {
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        /* Custom underline */
+        .luxury-link {
+            position: relative;
+        }
+
+        .luxury-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--brand-primary);
+            transition: width 0.3s ease;
+        }
+
+        .luxury-link:hover::after {
+            width: 100%;
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
 
             to {
@@ -106,7 +127,7 @@
         }
 
         .animate-fade-in {
-            animation: fadeIn 1s ease forwards;
+            animation: fadeIn 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
         }
     </style>
 </head>
@@ -117,20 +138,20 @@
     <header class="fixed top-0 w-full z-50 glass-header px-6 py-5 md:px-12 flex justify-between items-center">
         <div class="flex items-center gap-4 cursor-pointer group">
             <div
-                class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary/20 transition-transform group-hover:scale-110 shadow-lg">
+                class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary/20 transition-transform group-hover:scale-105 shadow-xl">
                 <img src="Logo Shexzit.jpeg" alt="Shexzit Logo" class="w-full h-full object-cover">
             </div>
             <div class="flex flex-col">
-                <span class="text-xl font-black tracking-tighter uppercase leading-none text-brand-dark">Shexzit</span>
-                <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-primary">Arte</span>
+                <span class="text-xl font-serif italic tracking-tighter leading-none text-brand-dark">Shexzit</span>
+                <span class="text-[9px] uppercase tracking-[0.4em] font-medium text-primary mt-1">Alta Gama</span>
             </div>
         </div>
 
-        <nav class="hidden md:flex gap-10 text-xs font-bold uppercase tracking-widest">
-            <a class="hover:text-primary transition-colors" href="#story">Historia</a>
-            <a class="hover:text-primary transition-colors" href="#process">Proceso</a>
-            <a class="hover:text-primary transition-colors" href="#collection">Colección</a>
-            <a class="hover:text-primary transition-colors" href="#contact">Contacto</a>
+        <nav class="hidden md:flex gap-12 text-[10px] font-bold uppercase tracking-[0.2em]">
+            <a class="luxury-link opacity-60 hover:opacity-100 transition-opacity" href="#story">Historia</a>
+            <a class="luxury-link opacity-60 hover:opacity-100 transition-opacity" href="#process">Proceso</a>
+            <a class="luxury-link opacity-60 hover:opacity-100 transition-opacity" href="#collection">Colección</a>
+            <a class="luxury-link opacity-60 hover:opacity-100 transition-opacity" href="#contact">Contacto</a>
         </nav>
 
         <div class="flex items-center gap-6">
@@ -158,10 +179,10 @@
                 <div class="flex flex-col md:flex-row justify-between items-end gap-12">
                     <div class="max-w-2xl">
                         <span
-                            class="text-sm font-bold uppercase tracking-[0.5em] text-primary mb-6 block animate-fade-in"
+                            class="text-sm font-medium italic tracking-[0.4em] text-primary mb-6 block animate-fade-in font-serif"
                             style="animation-delay: 0.2s">Macramé de Alta Gama</span>
-                        <h1 class="hero-title font-black uppercase mb-8 animate-fade-in" style="animation-delay: 0.4s">
-                            JOYERÍA<br />CON ALMA
+                        <h1 class="hero-title mb-8 animate-fade-in" style="animation-delay: 0.4s">
+                            Joyería<br /><span class="italic font-light">con Alma</span>
                         </h1>
                     </div>
                     <div class="max-w-md text-right md:text-left mb-6 animate-fade-in" style="animation-delay: 0.6s">
@@ -283,22 +304,43 @@
         <!-- Featured Collection -->
         <section class="bg-brand-taupe py-32 px-6 md:px-12" id="collection">
             <div class="max-w-7xl mx-auto">
-                <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                     <div>
-                        <h2 class="text-sm uppercase tracking-[0.4em] font-bold text-primary mb-4 block">Colecciones
-                        </h2>
-                        <h3 class="text-5xl md:text-7xl font-black uppercase tracking-tighter">La Selección</h3>
+                        <h2 class="text-sm uppercase tracking-[0.4em] font-medium text-primary mb-4 block font-sans">
+                            Curaduría Exclusiva</h2>
+                        <h3 class="text-5xl md:text-8xl font-serif italic tracking-tighter leading-none">La Selección
+                        </h3>
                     </div>
                     <button id="view-all-btn"
-                        class="px-12 py-5 border-2 border-brand-dark uppercase text-[10px] font-black tracking-widest hover:bg-brand-dark hover:text-white transition-all">Ver
-                        Toda la Tienda</button>
+                        class="luxury-link uppercase text-[10px] font-bold tracking-[0.3em] py-2 px-1 transition-all">
+                        Ver Toda la Tienda
+                    </button>
                 </div>
 
-                <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Products will be injected here via JavaScript -->
-                    <div class="col-span-full py-20 text-center text-brand-grey/50">
-                        <div class="animate-pulse">Cargando colección...</div>
-                    </div>
+                <!-- Category Filters -->
+                <div
+                    class="flex flex-wrap gap-4 md:gap-8 mb-16 border-b border-black/5 pb-8 overflow-x-auto whitespace-nowrap scrollbar-hide">
+                    <button onclick="filterCategory('all')"
+                        class="category-btn active text-xs font-bold uppercase tracking-widest text-brand-dark transition-all opacity-100 border-b-2 border-primary pb-2"
+                        data-category="all">Todos</button>
+                    <button onclick="filterCategory('joyas')"
+                        class="category-btn text-xs font-bold uppercase tracking-widest text-brand-grey transition-all opacity-60 hover:opacity-100 pb-2 border-b-2 border-transparent"
+                        data-category="joyas">Joyería Artística</button>
+                    <button onclick="filterCategory('bolsos')"
+                        class="category-btn text-xs font-bold uppercase tracking-widest text-brand-grey transition-all opacity-60 hover:opacity-100 pb-2 border-b-2 border-transparent"
+                        data-category="bolsos">Marroquinería</button>
+                    <button onclick="filterCategory('especiales')"
+                        class="category-btn text-xs font-bold uppercase tracking-widest text-brand-grey transition-all opacity-60 hover:opacity-100 pb-2 border-b-2 border-transparent"
+                        data-category="especiales">Piezas de Culto</button>
+                </div>
+
+                <div id="product-grid"
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16 min-h-[400px]">
+                    <!-- Skeleton loaders by default -->
+                    <div class="skeleton aspect-[3/4] rounded-sm"></div>
+                    <div class="skeleton aspect-[3/4] rounded-sm"></div>
+                    <div class="skeleton aspect-[3/4] rounded-sm hidden md:block"></div>
+                    <div class="skeleton aspect-[3/4] rounded-sm hidden lg:block"></div>
                 </div>
             </div>
         </section>
@@ -602,9 +644,28 @@
             }
         }
 
-        // --- 2. LÓGICA DEL CARRITO ---
+        // --- 2. LÓGICA DE LA TIENDA ---
         let cart = JSON.parse(localStorage.getItem('shexzit-cart')) || [];
         let showAllProducts = false;
+        let currentCategory = 'all';
+
+        function filterCategory(cat) {
+            currentCategory = cat;
+
+            // UI Update for buttons
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                const btnCat = btn.getAttribute('data-category');
+                if (btnCat === cat) {
+                    btn.classList.add('active', 'text-brand-dark', 'opacity-100', 'border-primary');
+                    btn.classList.remove('text-brand-grey', 'opacity-60', 'border-transparent');
+                } else {
+                    btn.classList.remove('active', 'text-brand-dark', 'opacity-100', 'border-primary');
+                    btn.classList.add('text-brand-grey', 'opacity-60', 'border-transparent');
+                }
+            });
+
+            renderProducts();
+        }
 
         function saveCart() {
             localStorage.setItem('shexzit-cart', JSON.stringify(cart));
@@ -648,29 +709,38 @@
             const viewAllBtn = document.getElementById('view-all-btn');
             if (!grid) return;
 
-            const productsToShow = showAllProducts ? PRODUCTS_DATA : PRODUCTS_DATA.slice(0, 4);
+            // Filter by category
+            let filteredProducts = PRODUCTS_DATA;
+            if (currentCategory !== 'all') {
+                filteredProducts = PRODUCTS_DATA.filter(p => p.type === currentCategory || p.category.toLowerCase().includes(currentCategory));
+            }
 
-            grid.innerHTML = productsToShow.map(product => `
-                <div class="group cursor-pointer hover-lift animate-fade-in">
-                    <div class="aspect-[3/4] bg-white rounded-xl overflow-hidden mb-6 relative shadow-md">
-                        <img alt="${product.name}"
-                            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                            src="${product.image}" />
-                        <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <button onclick="addToCart('${product.id}')" class="bg-white px-8 py-3 text-[10px] font-black uppercase tracking-widest shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                                Añadir al Carrito
-                            </button>
+            const productsToShow = showAllProducts ? filteredProducts : filteredProducts.slice(0, 4);
+
+            if (productsToShow.length === 0) {
+                grid.innerHTML = `<div class="col-span-full py-10 text-center text-brand-grey/40 font-light italic">No se encontraron piezas en esta categoría.</div>`;
+            } else {
+                grid.innerHTML = productsToShow.map(product => `
+                    <div class="group cursor-pointer hover-lift animate-fade-in">
+                        <div class="aspect-[3/4] bg-white rounded-sm overflow-hidden mb-8 relative shadow-sm border border-black/5">
+                            <img alt="${product.name}"
+                                class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                                src="${product.image}" loading="lazy" />
+                            <div class="absolute inset-0 bg-brand-dark/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <button onclick="addToCart('${product.id}')" class="bg-white px-10 py-4 text-[9px] font-bold uppercase tracking-[0.2em] shadow-2xl transform translate-y-6 group-hover:translate-y-0 transition-all duration-500 hover:bg-primary hover:text-white">
+                                    Añadir al Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <div class="px-1 text-center md:text-left">
+                            <p class="text-[9px] text-primary uppercase tracking-[0.2em] mb-2 font-medium font-sans">${product.category}</p>
+                            <h4 class="text-xl font-serif tracking-tight leading-tight mb-3">${product.name}</h4>
+                            <div class="bg-black/10 h-[1px] w-12 mb-3 mx-auto md:mx-0"></div>
+                            <span class="text-lg font-light tracking-widest">$${product.price}</span>
                         </div>
                     </div>
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h4 class="text-sm font-black uppercase tracking-widest">${product.name}</h4>
-                            <p class="text-[10px] text-brand-grey uppercase mt-1 tracking-widest">${product.category}</p>
-                        </div>
-                        <span class="text-sm font-bold">$${product.price}</span>
-                    </div>
-                </div>
-            `).join('');
+                `).join('');
+            }
 
             if (viewAllBtn) {
                 viewAllBtn.innerText = showAllProducts ? 'Ver Menos' : 'Ver Toda la Tienda';
@@ -715,30 +785,30 @@
                 total += subtotal;
                 return `
                     <div class="flex gap-6 group">
-                        <div class="w-24 h-24 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
+                        <div class="w-24 h-24 bg-gray-100 rounded-sm overflow-hidden flex-shrink-0">
                             <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">
                         </div>
                         <div class="flex-1 flex flex-col justify-between py-1">
                             <div>
                                 <div class="flex justify-between">
-                                    <h4 class="text-xs font-black uppercase tracking-widest">${item.name}</h4>
-                                    <button onclick="removeFromCart('${item.id}')" class="text-brand-grey hover:text-red-500 transition-colors">
-                                        <span class="material-symbols-outlined text-sm">delete</span>
+                                    <h4 class="text-[11px] font-serif font-bold italic tracking-tight">${item.name}</h4>
+                                    <button onclick="removeFromCart('${item.id}')" class="text-brand-grey/40 hover:text-red-500 transition-colors">
+                                        <span class="material-symbols-outlined text-sm font-light">close</span>
                                     </button>
                                 </div>
-                                <p class="text-[10px] text-brand-grey uppercase tracking-widest mt-1">${item.category}</p>
+                                <p class="text-[9px] text-brand-grey/60 uppercase tracking-widest mt-1">${item.category}</p>
                             </div>
                             <div class="flex justify-between items-end">
-                                <div class="flex items-center border border-gray-100 rounded-full px-2 py-1">
-                                    <button onclick="updateQuantity('${item.id}', -1)" class="p-1 hover:text-primary transition-colors">
-                                        <span class="material-symbols-outlined text-[12px]">remove</span>
+                                <div class="flex items-center space-x-3">
+                                    <button onclick="updateQuantity('${item.id}', -1)" class="w-6 h-6 rounded-full border border-black/5 flex items-center justify-center hover:bg-black/5 transition-colors">
+                                        <span class="material-symbols-outlined text-[10px]">remove</span>
                                     </button>
-                                    <span class="w-8 text-center text-[10px] font-bold">${item.quantity}</span>
-                                    <button onclick="updateQuantity('${item.id}', 1)" class="p-1 hover:text-primary transition-colors">
-                                        <span class="material-symbols-outlined text-[12px]">add</span>
+                                    <span class="text-[10px] font-bold font-sans">${item.quantity}</span>
+                                    <button onclick="updateQuantity('${item.id}', 1)" class="w-6 h-6 rounded-full border border-black/5 flex items-center justify-center hover:bg-black/5 transition-colors">
+                                        <span class="material-symbols-outlined text-[10px]">add</span>
                                     </button>
                                 </div>
-                                <span class="text-sm font-black">$${subtotal}</span>
+                                <span class="text-sm font-light tracking-widest">$${subtotal}</span>
                             </div>
                         </div>
                     </div>`;

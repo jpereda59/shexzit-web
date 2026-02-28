@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#ec5b13",
+                "background-light": "#fcfaf8",
+                "background-dark": "#221610",
+              },
+              fontFamily: {
+                "display": ["Public Sans", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<title>About the Artisan | Artisan Macramé</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 transition-colors duration-300">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-primary/10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-3 group cursor-pointer">
+<div class="text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">token</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Artisan Macramé</h1>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="#">Collections</a>
+<a class="text-sm font-semibold text-primary uppercase tracking-widest" href="#">Our Story</a>
+<a class="text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="#">Process</a>
+<a class="text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined text-2xl">search</span>
+</button>
+<button class="relative p-2 hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined text-2xl">shopping_bag</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative w-full h-[80vh] overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 bg-slate-900/20 z-10"></div>
+<img alt="Portrait of an artisan in a bright studio" class="absolute inset-0 w-full h-full object-cover" data-alt="Close up soulful portrait of an artisan at work" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHB-neDfpIcj6JXx6rnxRDqAINbjsLeeiBk-QKeDrcCsGbHJ01pY1odvzxNQHMPDJap-dxnwb8LZVUet-OWgOg_6NSBOeO38N4zfQWY0PzG6A7ZvwSQl1vLOs-6vjHxNGW2gV7a31ZagRy118P-7ZOZ9UXbV4NOPw6139UcTV2rjrA0UAOaoHUmXVQlQDWUIDmeyrXhCxzH7RFz3lq_q74z5tq-8VJgSb2v6CZeNPtUujCPnTx2pc6lGmgNzTeTTFIMvVpOq1OyvU"/>
+<div class="relative z-20 text-center px-6">
+<span class="text-white uppercase tracking-[0.3em] text-sm mb-4 block">Meet the Hands</span>
+<h2 class="text-5xl md:text-7xl font-light text-white leading-tight mb-6">A Journey in <br/>Every Knot</h2>
+<div class="w-20 h-px bg-white/50 mx-auto"></div>
+</div>
+</section>
+<!-- Storytelling Section -->
+<section class="max-w-4xl mx-auto px-6 py-24 md:py-32">
+<div class="grid md:grid-cols-12 gap-12 items-start">
+<div class="md:col-span-5">
+<h3 class="text-3xl font-light leading-tight text-slate-900 dark:text-slate-100">Born from the tides and ancient traditions.</h3>
+</div>
+<div class="md:col-span-7 space-y-8">
+<p class="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+                        Artisan Macramé began in a small seaside studio, born from a passion for ancient weaving techniques and the raw beauty of natural materials. Each piece is a meditative journey, blending silk-threaded cords with ethically sourced gemstones to create wearable art that resonates with the spirit.
+                    </p>
+<p class="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+                        The philosophy is simple: honor the materials and the time it takes to create something meaningful. In a world of mass production, we choose the slow path—where every knot is tied with intention and every gemstone is selected for its unique vibration.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Process Section -->
+<section class="bg-primary/5 dark:bg-primary/10 py-24">
+<div class="max-w-7xl mx-auto px-6">
+<div class="mb-16 text-center">
+<h2 class="text-sm uppercase tracking-[0.4em] text-primary font-bold mb-4">The Process</h2>
+<p class="text-4xl font-light italic">Artistry in Detail</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Process Item 1 -->
+<div class="group">
+<div class="aspect-[4/5] overflow-hidden rounded-xl mb-6">
+<img alt="High quality natural cords being sorted" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Detailed close up of silk cords in earth tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrZ6O13COCRSZqZtd5a52Go4In3Y4uYR1oeYJ-m-Eoeb5p7je-KeOo1Q6Ev3Lc05B0Pr3Mqe7cbnOuR9wDNz1IB5lYiSEjMvdZ_4CYplkG2MuPJaPzRP7KHk5Anwbo6X3-AoiGPsx2sve1yvwnNDlYItF1RHwBUSC960LZyjhe1dRwEF99V2e6QZNcqF61nQq7T9S5Us8LQ56-zuqUm0Kl3ep8VylgAHuVI9DGyXGGn8CyhWloaut3cVCxojpCMJwYPMGAj1jOhhs"/>
+</div>
+<h4 class="text-xl font-medium mb-3">Pure Foundation</h4>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">We source only the finest organic cotton and silk-blended cords, treated with natural waxes for durability and a soft touch against the skin.</p>
+</div>
+<!-- Process Item 2 -->
+<div class="group md:mt-12">
+<div class="aspect-[4/5] overflow-hidden rounded-xl mb-6">
+<img alt="Hands meticulously weaving macrame" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close up of artisan hands weaving intricate jewelry patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHNWK3CWat44NGtlWDmwYU-KxMDXwJoi4TmRXvPA0VaRPr4tFGxOPOyuuEK8AVLCpx79qCFNv9SJVxQITfpsDQ4d48Lihsy5nU0kvqp583OmZrVjbnlic7VtVm0qKcgfi4JZwSMQYHwa0Fa8QLDYOxlkC9KjNQ_pHUc_XbJGF_Oged-FU97siwiLRpxdWyqE8o35VDUeehCxN2qBs_eG17KJDdFtdk5-G8Hg8ggCGw8TU2FDXAPoFKvQWjApWQ_7HlvcbsUHQZj00"/>
+</div>
+<h4 class="text-xl font-medium mb-3">The Micro-Knot</h4>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">Our signature micro-macramé technique requires patience and precision, turning miles of thread into delicate, complex patterns.</p>
+</div>
+<!-- Process Item 3 -->
+<div class="group">
+<div class="aspect-[4/5] overflow-hidden rounded-xl mb-6">
+<img alt="Collection of raw gemstones" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close up of ethically sourced raw gemstones and crystals" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBJqcurkQdrnX3N5QEBNn0gMuQiEncpWzWWu4qE2mQPqEUN2aZPy8wqBQUm_I0amHdi1O5MrB_xSv64vtrQxbCuSF4GuCRHqWw2scCZk9Yg-NzL9yEslX4LLe_3uXMxFsOtVkNDvc2-Gaijy6zvxm4CMRcG3URBR7AU5pdLEad2qK2n-3CuTe8BiE6QLO6GTCiqPIuvVw5xGQOj3sO4y7PKLyr8AkTzgFGRqpcYzWXUHK129X9iO87cbo-8mB_ohQzVK-hErlDjdY"/>
+</div>
+<h4 class="text-xl font-medium mb-3">Earth's Treasure</h4>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">Each gemstone is ethically sourced and hand-selected for its clarity and color, ensuring no two pieces are ever identical.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Quote Section -->
+<section class="py-32 text-center max-w-3xl mx-auto px-6">
+<span class="material-symbols-outlined text-primary text-5xl mb-8 opacity-50">format_quote</span>
+<blockquote class="text-3xl md:text-4xl font-light leading-snug italic mb-10 text-slate-800 dark:text-slate-200">
+                "I believe jewelry should be more than an ornament; it should be a quiet conversation between the wearer and the earth."
+            </blockquote>
+<p class="uppercase tracking-widest font-bold text-sm text-primary">— Elena Voss, Lead Artisan</p>
+</section>
+<!-- Final/Social Section -->
+<section class="border-t border-primary/10 py-16">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="text-center md:text-left">
+<h5 class="text-lg font-medium mb-2">Follow the creative journey</h5>
+<p class="text-slate-500 text-sm">Peek behind the scenes on our daily studio life.</p>
+</div>
+<div class="flex gap-4">
+<a class="w-12 h-12 flex items-center justify-center rounded-full border border-primary/20 hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">camera</span>
+</a>
+<a class="w-12 h-12 flex items-center justify-center rounded-full border border-primary/20 hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">video_library</span>
+</a>
+<a class="w-12 h-12 flex items-center justify-center rounded-full border border-primary/20 hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">alternate_email</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-slate-900 text-slate-400 py-12 px-6">
+<div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-2 text-white mb-6">
+<span class="material-symbols-outlined text-primary">token</span>
+<span class="font-bold text-lg tracking-tight">Artisan Macramé</span>
+</div>
+<p class="max-w-xs text-sm leading-relaxed">
+                    Handcrafted jewelry inspired by the intricate patterns of nature and the timeless art of knotting.
+                </p>
+</div>
+<div>
+<h6 class="text-white font-semibold mb-6 uppercase text-xs tracking-[0.2em]">Explore</h6>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Our Story</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Process &amp; Materials</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Custom Commissions</a></li>
+</ul>
+</div>
+<div>
+<h6 class="text-white font-semibold mb-6 uppercase text-xs tracking-[0.2em]">Contact</h6>
+<ul class="space-y-4 text-sm">
+<li>studio@artisanmacrame.com</li>
+<li>Sustainability Promise</li>
+<li>Shipping &amp; Returns</li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/10 text-xs flex justify-between">
+<p>© 2024 Artisan Macramé. All rights reserved.</p>
+<div class="flex gap-6">
+<a href="#">Privacy Policy</a>
+<a href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</body></html>

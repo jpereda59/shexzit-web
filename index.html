@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Shexzit Arte | Macramé de Lujo y Tejido de Intención</title>
+    <meta name="description"
+        content="Descubre el arte del macramé de lujo con Shexzit Arte. Joyería artesanal hecha a mano con hilos premium y piedras preciosas.">
+
+    <!-- Google Fonts: Public Sans & Manrope -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Public+Sans:wght@100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "brand-beige": "#fdfbf7",
+                        "brand-taupe": "#fcfaf8",
+                        "brand-dark": "#1a1a1a",
+                        "brand-grey": "#6b7280",
+                    },
+                    fontFamily: {
+                        "sans": ["Manrope", "sans-serif"],
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "custom": "8px",
+                    },
+                },
+            },
+        }
+    </script>
+
+    <style>
+        :root {
+            --brand-primary: #ec5b13;
+        }
+
+        body {
+            background-color: #fdfbf7;
+            color: #1a1a1a;
+            scroll-behavior: smooth;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 12vw, 10rem);
+            line-height: 0.9;
+            letter-spacing: -0.04em;
+        }
+
+        .glass-header {
+            background: rgba(253, 251, 247, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .premium-gradient {
+            background: linear-gradient(135deg, #ec5b13 0%, #ff8c42 100%);
+        }
+
+        .section-number {
+            font-family: 'Public Sans', sans-serif;
+            font-weight: 900;
+            opacity: 0.05;
+            font-size: 15vw;
+            line-height: 1;
+            position: absolute;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hover-lift {
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-8px);
+        }
+
+        /* Micro-animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 glass-header px-6 py-5 md:px-12 flex justify-between items-center">
+        <div class="flex items-center gap-4 cursor-pointer group">
+            <div
+                class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary/20 transition-transform group-hover:scale-110 shadow-lg">
+                <img src="Logo Shexzit.jpeg" alt="Shexzit Logo" class="w-full h-full object-cover">
+            </div>
+            <div class="flex flex-col">
+                <span class="text-xl font-black tracking-tighter uppercase leading-none text-brand-dark">Shexzit</span>
+                <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-primary">Arte</span>
+            </div>
+        </div>
+
+        <nav class="hidden md:flex gap-10 text-xs font-bold uppercase tracking-widest">
+            <a class="hover:text-primary transition-colors" href="#story">Historia</a>
+            <a class="hover:text-primary transition-colors" href="#process">Proceso</a>
+            <a class="hover:text-primary transition-colors" href="#collection">Colección</a>
+            <a class="hover:text-primary transition-colors" href="#contact">Contacto</a>
+        </nav>
+
+        <div class="flex items-center gap-6">
+            <!-- Cart Trigger -->
+            <button id="cart-trigger" class="p-2 hover:bg-black/5 rounded-full transition-colors relative">
+                <span class="material-symbols-outlined">shopping_bag</span>
+                <span id="cart-count"
+                    class="absolute top-1 right-1 w-4 h-4 bg-primary text-white text-[8px] flex items-center justify-center rounded-full opacity-0 transition-opacity">0</span>
+            </button>
+            <div class="md:hidden">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen pt-32 flex flex-col justify-end overflow-hidden" id="hero">
+            <div class="absolute inset-0 z-0 bg-slate-200">
+                <img alt="Shexzit Arte Macrame Background" class="w-full h-full object-cover opacity-60"
+                    src="catalogo%20de%20fotos/foto%208.jpg" />
+            </div>
+
+            <div class="relative z-10 px-6 md:px-12 w-full pb-12 md:pb-24">
+                <div class="flex flex-col md:flex-row justify-between items-end gap-12">
+                    <div class="max-w-2xl">
+                        <span
+                            class="text-sm font-bold uppercase tracking-[0.5em] text-primary mb-6 block animate-fade-in"
+                            style="animation-delay: 0.2s">Macramé de Alta Gama</span>
+                        <h1 class="hero-title font-black uppercase mb-8 animate-fade-in" style="animation-delay: 0.4s">
+                            JOYERÍA<br />CON ALMA
+                        </h1>
+                    </div>
+                    <div class="max-w-md text-right md:text-left mb-6 animate-fade-in" style="animation-delay: 0.6s">
+                        <p class="text-lg font-light leading-relaxed text-brand-dark/80">
+                            Piezas únicas tejidas a mano, donde cada nudo cuenta una historia de paciencia, tradición y
+                            belleza natural.
+                        </p>
+                        <div class="mt-8 flex gap-6 justify-end md:justify-start">
+                            <button
+                                class="bg-brand-dark text-white px-8 py-4 uppercase text-xs font-bold tracking-widest hover:bg-primary transition-colors">Explorar
+                                Colección</button>
+                            <button
+                                class="border border-brand-dark/20 px-8 py-4 uppercase text-xs font-bold tracking-widest hover:bg-brand-dark hover:text-white transition-colors">Nuestra
+                                Historia</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gradient Decorative Bar -->
+            <div class="w-full h-3 premium-gradient relative z-20"></div>
+        </section>
+
+        <!-- Story / Philosophy Section -->
+        <section class="relative px-6 md:px-12 py-32 md:py-48 overflow-hidden bg-brand-taupe" id="story">
+            <span class="section-number top-0 left-0">01</span>
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+                <div class="relative">
+                    <div class="aspect-[4/5] rounded-custom overflow-hidden shadow-2xl">
+                        <img alt="Artesana Shexzit Arte" class="w-full h-full object-cover"
+                            src="catalogo%20de%20fotos/testimonios/testimonio%205.jpg" />
+                    </div>
+                    <div class="absolute -bottom-10 -right-10 bg-primary p-12 hidden md:block">
+                        <span class="material-symbols-outlined text-white text-5xl">format_quote</span>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-sm uppercase tracking-[0.4em] font-bold text-primary mb-8 block">Nuestra Historia
+                    </h2>
+                    <h3 class="text-4xl md:text-6xl font-light leading-tight mb-8">El arte de la lentitud en un mundo
+                        que corre.</h3>
+                    <p class="text-xl font-light text-brand-grey leading-relaxed mb-6">
+                        Shexzit Arte nace de la necesidad de reconectar con lo manual y lo sagrado. En cada pieza de
+                        micro-macramé, invertimos horas de meditación activa para lograr una tensión perfecta y una
+                        armonía visual que vibre con quien la lleva.
+                    </p>
+                    <p class="text-xl font-light text-brand-grey leading-relaxed">
+                        No creamos joyería; creamos amuletos contemporáneos que honran los materiales nobles: hilos
+                        encerados premium brasileños y gemas seleccionadas por su brillo y energía.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="px-6 md:px-12 py-32 bg-white relative overflow-hidden" id="process">
+            <span class="section-number top-0 right-0">02</span>
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-24">
+                    <h2
+                        class="text-sm uppercase tracking-[0.4em] font-bold text-primary mb-4 block underline decoration-primary/20 decoration-4 underline-offset-8">
+                        El Proceso</h2>
+                    <h3 class="text-4xl md:text-5xl font-black uppercase tracking-tighter">Perfección en el Detalle</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="group">
+                        <div class="aspect-square rounded-xl overflow-hidden mb-8 shadow-lg">
+                            <img alt="Materiales Premium"
+                                class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                                src="catalogo%20de%20fotos/foto%2045.jpg" />
+                        </div>
+                        <h4 class="text-xl font-bold uppercase tracking-widest mb-4">Materia Prima</h4>
+                        <p class="text-brand-grey font-light leading-relaxed">Solo utilizamos hilos encerados de alta
+                            calidad y piedras naturales seleccionadas pieza a pieza por su pureza.</p>
+                    </div>
+                    <div class="group md:mt-24">
+                        <!-- Video Poster Card -->
+                        <a href="https://web.facebook.com/share/r/17kFu7uw3E/" target="_blank"
+                            class="block relative aspect-[9/16] rounded-xl overflow-hidden mb-8 shadow-2xl group/video">
+                            <img src="catalogo%20de%20fotos/foto%2032.jpg" alt="Técnica Shexzit"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover/video:scale-110">
+                            <div
+                                class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover/video:bg-black/20 transition-all duration-500">
+                                <!-- Pulsing Play Button -->
+                                <div
+                                    class="w-20 h-20 bg-primary/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-2xl relative">
+                                    <span
+                                        class="absolute inset-0 bg-primary rounded-full animate-ping opacity-30"></span>
+                                    <span class="material-symbols-outlined text-white text-4xl">play_arrow</span>
+                                </div>
+                                <div class="absolute bottom-8 left-12 right-12 text-center">
+                                    <div
+                                        class="bg-white/10 backdrop-blur-md px-4 py-2 rounded-lg border border-white/20">
+                                        <p class="text-white text-[10px] font-black uppercase tracking-[0.3em]">Ver
+                                            Proceso en Facebook</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <h4 class="text-xl font-bold uppercase tracking-widest mb-4">El Micro-Nudo</h4>
+                        <p class="text-brand-grey font-light leading-relaxed">Nuestra técnica exclusiva requiere miles
+                            de precisos nudos para crear texturas intrincadas que parecen seda tejida.</p>
+                    </div>
+                    <div class="group">
+                        <div class="aspect-square rounded-xl overflow-hidden mb-8 shadow-lg">
+                            <img alt="Piedras Energéticas"
+                                class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                                src="catalogo%20de%20fotos/foto%2010.jpg" />
+                        </div>
+                        <h4 class="text-xl font-bold uppercase tracking-widest mb-4">Gemas con Luz</h4>
+                        <p class="text-brand-grey font-light leading-relaxed">Cada gema aporta su propia vibración,
+                            convirtiendo tu joyería en una extensión de tu propia esencia.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Collection -->
+        <section class="bg-brand-taupe py-32 px-6 md:px-12" id="collection">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+                    <div>
+                        <h2 class="text-sm uppercase tracking-[0.4em] font-bold text-primary mb-4 block">Colecciones
+                        </h2>
+                        <h3 class="text-5xl md:text-7xl font-black uppercase tracking-tighter">La Selección</h3>
+                    </div>
+                    <button id="view-all-btn"
+                        class="px-12 py-5 border-2 border-brand-dark uppercase text-[10px] font-black tracking-widest hover:bg-brand-dark hover:text-white transition-all">Ver
+                        Toda la Tienda</button>
+                </div>
+
+                <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Products will be injected here via JavaScript -->
+                    <div class="col-span-full py-20 text-center text-brand-grey/50">
+                        <div class="animate-pulse">Cargando colección...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="py-24 bg-brand-dark text-white overflow-hidden" id="testimonials">
+            <div class="max-w-7xl mx-auto px-6 md:px-12">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-sm uppercase tracking-[0.4em] font-bold text-primary mb-4 block">Historias Reales
+                    </h2>
+                    <h3 class="text-3xl md:text-5xl font-light uppercase tracking-tighter">Nuestros Coleccionistas</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <!-- Testimonial 1 -->
+                    <div class="group" data-aos="fade-up" data-aos-delay="0">
+                        <div class="relative mb-8 rounded-xl overflow-hidden aspect-square shadow-2xl">
+                            <img src="catalogo%20de%20fotos/testimonios/testimonio%201.jpg" alt="Testimonio Shexzit"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <div class="flex gap-1 text-primary mb-2">
+                                    <span class="material-symbols-outlined text-sm">star</span>
+                                    <span class="material-symbols-outlined text-sm">star</span>
+                                    <span class="material-symbols-outlined text-sm">star</span>
+                                    <span class="material-symbols-outlined text-sm">star</span>
+                                    <span class="material-symbols-outlined text-sm">star</span>
+                                </div>
+                                <p class="font-bold uppercase tracking-widest text-xs">Elena R.</p>
+                            </div>
+                        </div>
+                        <p class="text-white/60 italic text-lg leading-relaxed">"La delicadeza de los nudos es
+                            impresionante. Se nota que hay alma en este trabajo."</p>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="relative mb-8 rounded-xl overflow-hidden aspect-square shadow-2xl">
+                            <img src="catalogo%20de%20fotos/testimonios/testimonio%203.jpg" alt="Testimonio Shexzit"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <div class="flex gap-1 text-primary mb-2">
+                                    <span class="material-symbols-outlined text-sm">star</span>
+                                    <span class="material-symbols-outlined text-sm">star</span>
+                                    <span class="material-symbols-outlined text-sm">star</span>
+                                    <span class="material-symbols-outlined text-sm">star</span>
+                                    <span class="material-symbols-outlined text-sm">star</span>
+                                </div>
+                                <p class="font-bold uppercase tracking-widest text-xs">Marco y Sofía</p>
+                            </div>
+                        </div>
+                        <p class="text-white/60 italic text-lg leading-relaxed">"Nuestros brazaletes de pareja son
+                            hermosos. Una conexión única tejida a mano."</p>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative mb-8 rounded-xl overflow-hidden aspect-square shadow-2xl">
+                            <img src="catalogo%20de%20fotos/testimonios/testimonio%2010.jpg" alt="Testimonio Shexzit"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <div class="flex gap-1 text-primary mb-2">
+                                    <span class="material-symbols-outlined text-sm">star</span>
+                                    <span class="material-symbols-outlined text-sm">star</span>
+                                    <span class="material-symbols-outlined text-sm">star</span>
+                                    <span class="material-symbols-outlined text-sm">star</span>
+                                    <span class="material-symbols-outlined text-sm">star</span>
+                                </div>
+                                <p class="font-bold uppercase tracking-widest text-xs">Patricia M.</p>
+                            </div>
+                        </div>
+                        <p class="text-white/60 italic text-lg leading-relaxed">"Diseños que no pasan desapercibidos.
+                            Calidad premium y atención al detalle excepcional."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="py-32 px-6 md:px-12 bg-white" id="contact">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24">
+                <div>
+                    <h2 class="text-sm uppercase tracking-[0.4em] font-bold text-primary mb-8 block">Contacto</h2>
+                    <h3 class="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-12">HABLEMOS
+                    </h3>
+                    <p class="text-xl font-light text-brand-grey leading-relaxed mb-12">
+                        ¿Tienes una idea para una comisión personalizada o quieres saber más sobre nuestras piedras?
+                        Estamos aquí para escucharte.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <span class="material-symbols-outlined text-primary">mail</span>
+                            <span class="text-lg font-bold">hola@artintapps.com</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="material-symbols-outlined text-primary">public</span>
+                            <span class="text-lg font-bold">@shexzit_arte</span>
+                        </div>
+                    </div>
+                </div>
+                <form class="space-y-8 bg-brand-taupe p-12 rounded-xl shadow-sm">
+                    <div class="space-y-2">
+                        <label class="text-[10px] uppercase font-black tracking-widest opacity-40">Nombre</label>
+                        <input
+                            class="w-full bg-transparent border-b border-brand-dark/10 py-4 focus:outline-none focus:border-primary transition-colors font-bold text-lg"
+                            type="text" placeholder="Tu nombre">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[10px] uppercase font-black tracking-widest opacity-40">Email</label>
+                        <input
+                            class="w-full bg-transparent border-b border-brand-dark/10 py-4 focus:outline-none focus:border-primary transition-colors font-bold text-lg"
+                            type="email" placeholder="tu@email.com">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[10px] uppercase font-black tracking-widest opacity-40">Mensaje</label>
+                        <textarea
+                            class="w-full bg-transparent border-b border-brand-dark/10 py-4 focus:outline-none focus:border-primary transition-colors font-bold text-lg min-h-[150px]"
+                            placeholder="¿En qué podemos ayudarte?"></textarea>
+                    </div>
+                    <button
+                        class="w-full premium-gradient text-white py-6 uppercase font-black tracking-[0.3em] text-xs shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all">Enviar
+                        Mensaje</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-white py-24 px-6 md:px-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-16 mb-24">
+                <div class="flex items-center gap-4 group cursor-pointer">
+                    <div
+                        class="w-20 h-20 rounded-full overflow-hidden border-2 border-white/10 transition-transform group-hover:scale-110 shadow-2xl">
+                        <img src="Logo Shexzit.jpeg" alt="Shexzit Logo" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex flex-col">
+                        <span
+                            class="text-3xl font-black tracking-tighter uppercase leading-none text-white">Shexzit</span>
+                        <span class="text-xs uppercase tracking-[0.4em] font-bold text-primary">Arte</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-xs font-bold uppercase tracking-widest">
+                    <a class="hover:text-primary transition-colors" href="#">Colección</a>
+                    <a class="hover:text-primary transition-colors" href="#">Historia</a>
+                    <a class="hover:text-primary transition-colors" href="#">Sustentabilidad</a>
+                    <a class="hover:text-primary transition-colors" href="#">Envíos</a>
+                </div>
+            </div>
+            <div
+                class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] uppercase tracking-[0.3em] font-bold text-white/30">
+                <p>© 2024 SHEXZIT ARTE. TODOS LOS DERECHOS RESERVADOS.</p>
+                <div class="flex gap-8">
+                    <a class="hover:text-white transition-colors" href="#">Privacidad</a>
+                    <a class="hover:text-white transition-colors" href="#">Términos</a>
+                </div>
+                <p>ELABORADO POR <a href="https://www.artintaapps.com" target="_blank"
+                        class="hover:text-primary transition-colors underline-offset-4 decoration-primary/30">ARTITAPPS
+                        PERLA</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div id="cart-drawer" class="fixed inset-0 z-[100] invisible">
+        <!-- Backdrop -->
+        <div id="cart-backdrop"
+            class="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-500"></div>
+
+        <!-- Sidebar -->
+        <div id="cart-sidebar"
+            class="absolute top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl translate-x-full transition-transform duration-500 overflow-hidden flex flex-col">
+            <div class="px-8 py-8 border-b border-gray-100 flex justify-between items-center">
+                <div>
+                    <h2 class="text-2xl font-black uppercase tracking-tighter">Tu Selección</h2>
+                    <p class="text-[10px] text-brand-grey uppercase tracking-widest mt-1">Revisa tu carrito de arte</p>
+                </div>
+                <button id="cart-close" class="p-2 hover:bg-gray-100 rounded-full transition-colors">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+
+            <div id="cart-items" class="flex-1 overflow-y-auto px-8 py-8 space-y-8">
+                <!-- Cart items will be injected here -->
+                <div class="text-center py-20 opacity-30">
+                    <span class="material-symbols-outlined text-6xl mb-4">shopping_bag</span>
+                    <p class="text-xs uppercase tracking-widest">Tu carrito está vacío</p>
+                </div>
+            </div>
+
+            <div class="px-8 py-8 border-t border-gray-100 bg-gray-50/50">
+                <div class="flex justify-between items-end mb-8">
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-grey">Total Estimado</span>
+                    <span id="cart-total" class="text-3xl font-black">$0</span>
+                </div>
+                <!-- Stripe Checkout Button -->
+                <button id="checkout-btn"
+                    class="w-full premium-gradient text-white py-6 uppercase font-black tracking-[0.3em] text-xs shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 disabled:grayscale"
+                    disabled>
+                    Finalizar Compra
+                </button>
+                <div class="mt-4 flex items-center justify-center gap-2 opacity-30 grayscale">
+                    <span class="material-symbols-outlined text-sm">lock</span>
+                    <span class="text-[8px] font-bold uppercase tracking-widest">Pago Seguro con Stripe</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Initial Animations Handle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all main sections
+            document.querySelectorAll('section').forEach(section => {
+                section.querySelectorAll('h2, h3, p, .group').forEach(el => {
+                    el.style.opacity = '0';
+                    observer.observe(el);
+                });
+            });
+        });
+    </script>
+
+    <!-- Scripts -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // --- 0. CONFIGURACIÓN DE SUPABASE ---
+        const SUPABASE_URL = 'https://lnvooiurabiykoalzxvw.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_rhc0ckc0H4O9vh8_5TqIeg_Ov9IfQ1m';
+
+        // Usamos _supabase para evitar conflictos con el objeto global de la librería
+        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+            auth: { persistSession: false } // Esto soluciona el aviso de 'Tracking Prevention'
+        });
+
+        // --- 1. CONFIGURACIÓN DE PRODUCTOS (Local Fallback) ---
+        let PRODUCTS_DATA = [
+            {
+                id: 'prod_bolso_labrado',
+                name: 'Bolso Labrado',
+                category: 'Cuero / Texturas Orgánicas',
+                price: 145,
+                image: 'catalogo%20de%20fotos/foto%2025.jpg',
+                description: 'Pieza única tallada a mano con técnicas tradicionales.'
+            },
+            {
+                id: 'prod_brazalete_amatista',
+                name: 'Brazalete Amatista',
+                category: 'Piedra Natural / Morado Profundo',
+                price: 65,
+                image: 'catalogo%20de%20fotos/foto%2010.jpg',
+                description: 'Gema seleccionada por su vibración y color intenso.'
+            },
+            {
+                id: 'prod_duo_colgantes',
+                name: 'Dúo de Colgantes',
+                category: 'Tallado a Mano / Simbolismo',
+                price: 88,
+                image: 'catalogo%20de%20fotos/foto%2050.jpg',
+                description: 'Pareja de piezas complementarias con simbología ancestral.'
+            },
+            {
+                id: 'prod_pulsera_margarita',
+                name: 'Pulsera Margarita',
+                category: 'Naturaleza Encapsulada / Macramé',
+                price: 45,
+                image: 'catalogo%20de%20fotos/foto%201.jpg',
+                description: 'Tejido delicado que preserva la belleza de lo natural.'
+            }
+        ];
+
+        async function fetchProductsFromSupabase() {
+            try {
+                const { data, error } = await _supabase
+                    .from('products')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+
+                if (error) throw error;
+                if (data && data.length > 0) {
+                    PRODUCTS_DATA = data;
+                    renderProducts();
+                }
+            } catch (err) {
+                console.warn('Usando datos locales (Supabase no configurado o error):', err.message);
+            }
+        }
+
+        // --- 2. LÓGICA DEL CARRITO ---
+        let cart = JSON.parse(localStorage.getItem('shexzit-cart')) || [];
+        let showAllProducts = false;
+
+        function saveCart() {
+            localStorage.setItem('shexzit-cart', JSON.stringify(cart));
+            updateCartUI();
+        }
+
+        function addToCart(productId) {
+            const product = PRODUCTS_DATA.find(p => p.id === productId);
+            const exists = cart.find(item => item.id === productId);
+
+            if (exists) {
+                exists.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            saveCart();
+            openCart();
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            saveCart();
+        }
+
+        function updateQuantity(productId, delta) {
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                item.quantity += delta;
+                if (item.quantity <= 0) {
+                    removeFromCart(productId);
+                } else {
+                    saveCart();
+                }
+            }
+        }
+
+        // --- 3. INTERFAZ DE USUARIO ---
+        function renderProducts() {
+            const grid = document.getElementById('product-grid');
+            const viewAllBtn = document.getElementById('view-all-btn');
+            if (!grid) return;
+
+            const productsToShow = showAllProducts ? PRODUCTS_DATA : PRODUCTS_DATA.slice(0, 4);
+
+            grid.innerHTML = productsToShow.map(product => `
+                <div class="group cursor-pointer hover-lift animate-fade-in">
+                    <div class="aspect-[3/4] bg-white rounded-xl overflow-hidden mb-6 relative shadow-md">
+                        <img alt="${product.name}"
+                            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                            src="${product.image}" />
+                        <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button onclick="addToCart('${product.id}')" class="bg-white px-8 py-3 text-[10px] font-black uppercase tracking-widest shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="text-sm font-black uppercase tracking-widest">${product.name}</h4>
+                            <p class="text-[10px] text-brand-grey uppercase mt-1 tracking-widest">${product.category}</p>
+                        </div>
+                        <span class="text-sm font-bold">$${product.price}</span>
+                    </div>
+                </div>
+            `).join('');
+
+            if (viewAllBtn) {
+                viewAllBtn.innerText = showAllProducts ? 'Ver Menos' : 'Ver Toda la Tienda';
+            }
+        }
+
+        function toggleProducts() {
+            showAllProducts = !showAllProducts;
+            renderProducts();
+            if (!showAllProducts) {
+                document.getElementById('collection').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function updateCartUI() {
+            const itemsContainer = document.getElementById('cart-items');
+            const totalEl = document.getElementById('cart-total');
+            const countEl = document.getElementById('cart-count'); // Assuming there's a cart-count element in the header
+            const checkoutBtn = document.getElementById('checkout-btn');
+
+            if (cart.length === 0) {
+                itemsContainer.innerHTML = `
+                    <div class="text-center py-20 opacity-30">
+                        <span class="material-symbols-outlined text-6xl mb-4">shopping_bag</span>
+                        <p class="text-xs uppercase tracking-widest">Tu carrito está vacío</p>
+                    </div>`;
+                totalEl.innerText = '$0';
+                if (countEl) countEl.classList.add('opacity-0');
+                checkoutBtn.disabled = true;
+                return;
+            }
+
+            if (countEl) {
+                countEl.classList.remove('opacity-0');
+                countEl.innerText = cart.reduce((sum, item) => sum + item.quantity, 0);
+            }
+            checkoutBtn.disabled = false;
+
+            let total = 0;
+            itemsContainer.innerHTML = cart.map(item => {
+                const subtotal = item.price * item.quantity;
+                total += subtotal;
+                return `
+                    <div class="flex gap-6 group">
+                        <div class="w-24 h-24 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
+                            <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1 flex flex-col justify-between py-1">
+                            <div>
+                                <div class="flex justify-between">
+                                    <h4 class="text-xs font-black uppercase tracking-widest">${item.name}</h4>
+                                    <button onclick="removeFromCart('${item.id}')" class="text-brand-grey hover:text-red-500 transition-colors">
+                                        <span class="material-symbols-outlined text-sm">delete</span>
+                                    </button>
+                                </div>
+                                <p class="text-[10px] text-brand-grey uppercase tracking-widest mt-1">${item.category}</p>
+                            </div>
+                            <div class="flex justify-between items-end">
+                                <div class="flex items-center border border-gray-100 rounded-full px-2 py-1">
+                                    <button onclick="updateQuantity('${item.id}', -1)" class="p-1 hover:text-primary transition-colors">
+                                        <span class="material-symbols-outlined text-[12px]">remove</span>
+                                    </button>
+                                    <span class="w-8 text-center text-[10px] font-bold">${item.quantity}</span>
+                                    <button onclick="updateQuantity('${item.id}', 1)" class="p-1 hover:text-primary transition-colors">
+                                        <span class="material-symbols-outlined text-[12px]">add</span>
+                                    </button>
+                                </div>
+                                <span class="text-sm font-black">$${subtotal}</span>
+                            </div>
+                        </div>
+                    </div>`;
+            }).join('');
+
+            totalEl.innerText = `$${total}`;
+        }
+
+        // --- 4. ANIMACIONES Y CONTROL DEL DRAWER ---
+        function openCart() {
+            const drawer = document.getElementById('cart-drawer');
+            const backdrop = document.getElementById('cart-backdrop');
+            const sidebar = document.getElementById('cart-sidebar');
+
+            drawer.classList.remove('invisible');
+            setTimeout(() => {
+                backdrop.classList.add('opacity-100');
+                sidebar.classList.remove('translate-x-full');
+            }, 10);
+        }
+
+        function closeCart() {
+            const backdrop = document.getElementById('cart-backdrop');
+            const sidebar = document.getElementById('cart-sidebar');
+
+            backdrop.classList.remove('opacity-100');
+            sidebar.classList.add('translate-x-full');
+            setTimeout(() => {
+                document.getElementById('cart-drawer').classList.add('invisible');
+            }, 500);
+        }
+
+        // --- 5. INTEGRACIÓN CON STRIPE ---
+        document.getElementById('checkout-btn').addEventListener('click', async () => {
+            const btn = document.getElementById('checkout-btn');
+            btn.innerText = 'Cargando...';
+            btn.disabled = true;
+
+            // NOTA: Para producción, aquí llamarías a tu backend (Supabase functions/Perla API)
+            // para crear una sesión de Stripe Checkout real.
+            console.log('Iniciando checkout de Stripe con el carrito:', cart);
+
+            alert('¡Conexión de Pago Detectada! \n\nEstamos listos para conectar con tu cuenta de Stripe. En un entorno real, aquí se abriría la plataforma de pago segura.');
+
+            btn.innerText = 'Finalizar Compra';
+            btn.disabled = false;
+        });
+
+        // Event Listeners
+        // Ensure 'cart-trigger' exists in the header or elsewhere to open the cart
+        const cartTrigger = document.getElementById('cart-trigger');
+        if (cartTrigger) {
+            cartTrigger.addEventListener('click', openCart);
+        }
+        document.getElementById('cart-close').addEventListener('click', closeCart);
+        document.getElementById('cart-backdrop').addEventListener('click', closeCart);
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            updateCartUI();
+            fetchProductsFromSupabase(); // Intentar cargar desde la nube
+
+            const viewAllBtn = document.getElementById('view-all-btn');
+            if (viewAllBtn) {
+                viewAllBtn.addEventListener('click', toggleProducts);
+            }
+        });
+
+        // Re-inicializar AOS o animaciones si es necesario
+        // document.querySelectorAll('.hover-lift').forEach(...)
+    </script>
+</body>
+
+</html>

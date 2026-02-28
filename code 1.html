@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HILOS Y NUDOS | Minimalist Macramé Art</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Manrope -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Manrope', 'sans-serif'],
+          },
+          colors: {
+            brand: '#ec6d13',
+            charcoal: '#0a0a0a',
+            surface: '#121212',
+          },
+          borderRadius: {
+            'custom': '8px',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-gradients">
+    .brand-gradient-bar {
+      height: 12px;
+      width: 100%;
+      background: linear-gradient(to right, #4a7c82, #8da693, #d9a05b, #ec6d13);
+    }
+    .text-outline {
+      -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+      color: transparent;
+    }
+  </style>
+<style data-purpose="typography-adjustments">
+    .hero-title {
+      font-size: clamp(4rem, 15vw, 12rem);
+      line-height: 0.85;
+      letter-spacing: -0.05em;
+    }
+    .section-title {
+      font-size: clamp(2rem, 8vw, 6rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden bg-[#fdfbf7] text-[#1a1a1a]">
+<!-- BEGIN: MainHeader -->
+<header class="fixed top-0 w-full z-50 px-6 py-8 md:px-12 flex justify-between items-center">
+<div class="text-2xl font-bold tracking-tighter">
+<sup>3</sup>M <span class="ml-1">H&amp;N</span>
+</div>
+<nav class="hidden md:flex gap-12 text-sm font-medium uppercase tracking-widest">
+<a class="hover:text-brand transition-colors text-black" href="#">Collection</a>
+<a class="hover:text-brand transition-colors text-black" href="#">Story</a>
+<a class="hover:text-brand transition-colors text-black" href="#">Process</a>
+<a class="hover:text-brand transition-colors text-black" href="#shop">Shop</a><a class="hover:text-brand transition-colors text-black" href="#">Contact</a>
+</nav>
+<div class="md:hidden">
+<!-- Mobile menu icon placeholder -->
+<svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M3.75 9h16.5m-16.5 6.75h16.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: HeroSection -->
+<main class="relative min-height-screen pt-32 flex flex-col justify-end" id="hero">
+<!-- Background Hero Image -->
+<div class="absolute inset-0 z-0 opacity-40">
+<img alt="Detailed Macrame Texture" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCF0M64aKa0wiV0nfKfB_vlfzNlu_aOPgfHNFOPNwRYW4_T1l3sKbT-5Y-zX7WgqUz7A7dRCMb5OaEr7_qOzoTiKvH0wVozVka34V4QCRznbNW9TIyZ2K3Vw-MA7d1J7XEqtDccVNjPzvq4F7Lff5QmKgHqMJ_Pgc7e54xXJr4LDPKBCB4Ra5kqmxxiN9OZzku1ycNoQkQwu7ZdD7zE1aeizxzdtF1aIZ1q74VnFZMDHO3M9hPkEL0OVLZqVyLO63IHuGRSRO1eEMM"/>
+</div>
+<div class="relative z-10 px-6 md:px-12 w-full">
+<!-- Top Content Row -->
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-24">
+<div class="flex gap-4 mb-8 md:mb-0">
+<button class="w-12 h-12 rounded-full border flex items-center justify-center transition-all border-black/10 hover:bg-black/5">
+<svg class="w-6 h-6 rotate-180" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13.5 4.5l6 6m0 0l-6 6m6-6H3.5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</button>
+<button class="w-12 h-12 rounded-full border flex items-center justify-center transition-all border-black/10 hover:bg-black/5">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13.5 4.5l6 6m0 0l-6 6m6-6H3.5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</button>
+</div>
+<div class="max-w-md text-right md:text-left">
+<p class="text-sm md:text-base font-light leading-relaxed text-gray-800">
+            We specialize in crafting clean, sleek, and sophisticated macramé jewelry that brings the art of the knot to life in the most elegant way possible.
+          </p>
+</div>
+</div>
+<!-- Main Title -->
+<h1 class="hero-title font-extrabold uppercase mb-8">
+        MACRAMÉ ART
+      </h1>
+<!-- Gradient Bar -->
+<div class="brand-gradient-bar mb-12"></div>
+</div>
+</main>
+<!-- END: HeroSection -->
+<!-- BEGIN: Philosophy -->
+<section class="px-6 md:px-12 py-24 md:py-48 grid grid-cols-1 md:grid-cols-2 gap-12 items-start" id="philosophy">
+<div>
+<h2 class="text-sm uppercase tracking-[0.3em] font-semibold text-gray-500">Our Philosophy</h2>
+</div>
+<div class="max-w-xl">
+<p class="text-xl md:text-2xl font-light leading-relaxed text-gray-700">
+        We believe that simplicity is the ultimate sophistication. Our minimalist design philosophy revolves around stripping away the clutter to reveal the essence of your vision. Through carefully curated knots, clean lines, and subtle textures, we create pieces that exude timeless elegance and functionality.
+      </p>
+</div>
+</section>
+<!-- END: Philosophy -->
+<!-- BEGIN: PortfolioGrid -->
+<section class="py-24 bg-[#f9f6f0]" id="portfolio">
+<div class="px-6 md:px-12 flex justify-between items-center mb-16">
+<h2 class="text-sm uppercase tracking-[0.3em] font-semibold text-gray-500">Best Portfolio</h2>
+<div class="flex gap-4">
+<button class="w-10 h-10 rounded-full border flex items-center justify-center border-black/10 hover:bg-black/5">
+<svg class="w-5 h-5 rotate-180" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13.5 4.5l6 6m0 0l-6 6m6-6H3.5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</button>
+<button class="w-10 h-10 rounded-full border flex items-center justify-center border-black/10 hover:bg-black/5">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13.5 4.5l6 6m0 0l-6 6m6-6H3.5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</button>
+</div>
+</div>
+<!-- Main Showcase -->
+<div class="px-6 md:px-12 mb-24 relative overflow-hidden group">
+<h3 class="section-title font-bold uppercase mb-8 z-10 relative">PRISMA LIGHT</h3>
+<div class="flex flex-col md:flex-row gap-8 items-end">
+<div class="w-full md:w-2/3 h-[500px] overflow-hidden rounded-custom">
+<img alt="Prisma Light Collection" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMsv5ntG5GJx9zhaqDTXhq_N_efcA6mAk1IkOJP-iBvEx4je7vZYDd4ii1_-GRBjsocH0JNuLd7j70f9mryQagkZMsOVkFD00_BI2HP1ctSmXJiAOrVFk2hAUrfuz2fDfZVS5GRg2YA5q1bzzFOp4Mql673oCCkyoXroklvyGzUZrCY1-rzkGOprEp_W6QX3ZalVvLsr2kRWBybiN26k7kO4PH23oK3LpFKMcGHb_stv1DtJrK7OW4PvRpEbZ9SqupM07ny9iTj-o"/>
+</div>
+<div class="text-xs uppercase tracking-widest text-gray-500 space-y-2">
+<p>/3D / Craft / Fiber Art</p>
+<p>/2024</p>
+</div>
+</div>
+</div>
+<!-- Triple Image Grid -->
+<div class="px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="aspect-[4/5] overflow-hidden rounded-custom bg-charcoal">
+<img alt="Product Detail 1" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCC35UandbrX6NpkTwkY7RbAhUNI7owazCEiOiBchrCKo4X5McpvuIS9PT1F2MdQVib0C2rvQQ-DysZ3rkP_4twYWRcY9_B5qsCBLoU7vH3c9f20CdmJXL_zRPCXPJrwkV9c_E1w8oYs2kN_l8vqepr05W_IoqOCyg2NT8rlJ-9nYxo_ZPBDFeRWAlkw9cAaPj6pLR3VMUmoMIKRKgrbyLV6ES7F9JZoBKmNESkJCFIKN8Q-1x7tme_UmV7hLDrL37vRgzjJfWRn9s"/>
+</div>
+<div class="aspect-[4/5] overflow-hidden rounded-custom bg-charcoal">
+<img alt="Product Detail 2" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIPUOu0u6wtGMvEzkc2zcTd5jfOHle0vkDenLWerFj0_TI1ttQ40O2v0qkZa3Y55N7uXtAz8rf6MuaVCuifcUskgi68-7rxsLJnMx3D-l_8DSvUuH7V-O1t4LOQn1VTtuZQNoU5K7lI_4XtH_CH9_3jY7_CyiAOak6mPcpO3ndj6mBlL4OzL0bdfFNEyta_jE4wOuWJxh6yVz6Zmx8HS-GN-ZQyW-6E0yQnucCSBZqzdbFWpyBAAyLg5DPX43r9gwDaFCR_wp8-00"/>
+</div>
+<div class="aspect-[4/5] overflow-hidden rounded-custom bg-charcoal">
+<img alt="Product Detail 3" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHbXpihnO87JKqlGN4xLo-bwxcGSFSjDQ4svWQ7eppiZQrOj4H385vwFANBT2naAOUBi6jZdb9IaBY4-3HfORyXcDt28d_E0mZ_amO00sI8GuHeMvXUAR9QxIqrhpVpjTQ2avRrXWsYyh71SsbuIg_ceT2lguewQlT94SeHiSo6iv4izul9wGa1tgHvIcSQ0PYeu1Cp7PkvwB4dGT_6wM0s36BrMDx1AUZqXUiqLQe85_QDL_OPl3HOmz7C3GuMK4XhPWSHFy1yXY"/>
+</div>
+</div>
+</section>
+<!-- END: PortfolioGrid -->
+<!-- BEGIN: WhyChooseUs -->
+<section class="px-6 md:px-12 py-32 bg-white text-charcoal" id="why">
+<div class="mb-24">
+<h2 class="section-title font-bold uppercase mb-16">Why Choose Our Craft</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+<div data-purpose="feature-card">
+<h4 class="font-bold text-lg mb-4 uppercase tracking-wider">Precision</h4>
+<p class="text-sm leading-relaxed text-gray-600">With years of experience in the industry, our team of expert designers is dedicated to delivering high-quality, professional results on every single project.</p>
+</div>
+<div data-purpose="feature-card">
+<h4 class="font-bold text-lg mb-4 uppercase tracking-wider">Sustainable Materials</h4>
+<p class="text-sm leading-relaxed text-gray-600">We understand that the smallest details can make the biggest impact. That's why we meticulously craft every aspect of our designs to ensure precision and perfection.</p>
+</div>
+<div data-purpose="feature-card">
+<h4 class="font-bold text-lg mb-4 uppercase tracking-wider">Unique Design</h4>
+<p class="text-sm leading-relaxed text-gray-600">Your vision is our priority. We work closely with you throughout the design process to understand your needs, preferences, and goals, ensuring that the final result exceeds expectations.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: WhyChooseUs -->
+<!-- BEGIN: ServicesSection -->
+<section class="px-6 md:px-12 py-32" id="process">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-24">
+<div>
+<h2 class="text-sm uppercase tracking-[0.3em] font-semibold text-gray-500 mb-8">Our Services</h2>
+<div class="flex gap-4">
+<button class="w-12 h-12 rounded-full border flex items-center justify-center border-black/10 hover:bg-black/5">
+<svg class="w-6 h-6 rotate-180" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13.5 4.5l6 6m0 0l-6 6m6-6H3.5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</button>
+<button class="w-12 h-12 rounded-full border flex items-center justify-center border-black/10 hover:bg-black/5">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13.5 4.5l6 6m0 0l-6 6m6-6H3.5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</button>
+</div>
+</div>
+<div class="text-right">
+<p class="text-lg md:text-xl font-light max-w-lg ml-auto leading-relaxed text-gray-700">
+          But minimalist doesn't mean boring. Far from it. In fact, it's our commitment to precision and attention to detail that sets our designs apart. Every line, every angle, every shadow is carefully considered to ensure balance and harmony.
+        </p>
+</div>
+</div>
+<!-- Full Width Visual -->
+<div class="w-full h-[600px] overflow-hidden rounded-custom">
+<img alt="Process Showcase" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJSTRSavCzx7Ec8tHkhTXvcLGmKvYpX-oL8BcEz4Q4o9NYlJ23vPVfWZhYOdqWk6tZZEwSuxg7ga3HsrMRURVc5ktxudyhqAGTxjaSVrFsVJ03Fci-4ZS0ABroi5P1QGP7KkZ0g83stI8nkK0iEP9Xf0Zx_PiMifUq0tFkqSuoZ7JyK5EUbLwY4AlBT4g6-6_WNFQ1A_SGWUvN9iiRRgzACJk0G-M6ezuHI94AYxwnKNNFpkDXraXz7gDHtZFVmzb_afoKCbXbmQY"/>
+</div>
+</section>
+<!-- END: ServicesSection -->
+<!-- BEGIN: FooterContact -->
+<section class="px-6 md:px-12 py-32 bg-[#fdfbf7]" id="shop">
+<div class="mb-16">
+<h2 class="text-sm uppercase tracking-[0.3em] font-semibold text-gray-500 mb-4">The Collection</h2>
+<h3 class="section-title font-bold uppercase">Shop Our Store</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-16">
+<!-- Product 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden rounded-custom bg-[#f9f6f0] mb-6">
+<img alt="Luz de Luna Necklace" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFmC9Gq9n9-W9T0zR_q2S-p9z8W7r7z9R-W9T0zR_q2S-p9z8W7r7z9R-W9T0zR_q2S-p9z8W7r7z9R"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-sm font-bold uppercase tracking-widest">Luz de Luna Necklace</h4>
+<p class="text-xs text-gray-500 mt-1 uppercase tracking-tighter">Handcrafted Fiber Art</p>
+</div>
+<span class="text-sm font-medium">$85</span>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden rounded-custom bg-[#f9f6f0] mb-6">
+<img alt="Aura Bracelet" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFmC9Gq9n9-W9T0zR_q2S-p9z8W7r7z9R-W9T0zR_q2S-p9z8W7r7z9R-W9T0zR_q2S-p9z8W7r7z9R"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-sm font-bold uppercase tracking-widest">Aura Bracelet</h4>
+<p class="text-xs text-gray-500 mt-1 uppercase tracking-tighter">Minimalist Knotwork</p>
+</div>
+<span class="text-sm font-medium">$45</span>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden rounded-custom bg-[#f9f6f0] mb-6">
+<img alt="Serena Earrings" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFmC9Gq9n9-W9T0zR_q2S-p9z8W7r7z9R-W9T0zR_q2S-p9z8W7r7z9R-W9T0zR_q2S-p9z8W7r7z9R"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-sm font-bold uppercase tracking-widest">Serena Earrings</h4>
+<p class="text-xs text-gray-500 mt-1 uppercase tracking-tighter">Delicate Textures</p>
+</div>
+<span class="text-sm font-medium">$60</span>
+</div>
+</div>
+</div>
+<div class="mt-20 flex justify-center">
+<button class="px-12 py-4 border border-charcoal uppercase text-xs tracking-[0.3em] font-bold hover:bg-charcoal hover:text-white transition-all">
+      View All Products
+    </button>
+</div>
+</section><footer class="px-6 md:px-12 pt-32 pb-12" id="contact">
+<div class="flex flex-col gap-12 mb-32">
+<h2 class="hero-title font-extrabold uppercase leading-none">
+        GET IN TOUCH
+      </h2>
+<div class="brand-gradient-bar"></div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
+<div class="text-3xl font-bold tracking-tighter">
+<sup>3</sup>M <span class="ml-1 text-base font-normal text-gray-500 uppercase tracking-widest">Hilos y Nudos</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-sm font-semibold uppercase tracking-widest">
+<a class="hover:text-brand transition-colors text-gray-600" href="#shop">Shop</a><a class="hover:text-brand transition-colors text-gray-600" href="#">Best Portfolio</a>
+<a class="hover:text-brand transition-colors text-gray-600" href="#">Our Services</a>
+<a class="hover:text-brand transition-colors text-gray-600" href="#">Why Choose Us</a>
+<a class="hover:text-brand transition-colors text-gray-600" href="#">Get In Touch</a>
+</div>
+</div>
+<div class="mt-24 pt-8 border-t border-white/10 flex justify-between items-center text-[10px] uppercase tracking-widest text-gray-600">
+<p>© 2024 HILOS Y NUDOS CRAFT. ALL RIGHTS RESERVED.</p>
+<p>ESTABLISHED IN BARCELONA</p>
+</div>
+</footer>
+<!-- END: FooterContact -->
+</body></html>

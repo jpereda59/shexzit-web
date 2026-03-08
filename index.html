@@ -409,6 +409,71 @@
             </div>
         </section>
 
+        <!-- Admin Panel Modal -->
+        <div id="admin-modal" class="fixed inset-0 z-[120] invisible">
+            <div id="admin-backdrop"
+                class="absolute inset-0 bg-brand-dark/95 backdrop-blur-md opacity-0 transition-opacity duration-500">
+            </div>
+            <div id="admin-content"
+                class="absolute inset-0 overflow-y-auto translate-y-20 opacity-0 transition-all duration-500">
+                <div class="min-h-screen flex items-center justify-center p-6 py-24">
+                    <div class="max-w-4xl w-full bg-white rounded-sm shadow-2xl overflow-hidden">
+                        <div class="px-12 py-8 bg-brand-dark text-white flex justify-between items-center">
+                            <div>
+                                <h2 class="text-xl font-serif italic italic">Panel de Gestión Shexzit</h2>
+                                <p class="text-[9px] uppercase tracking-[0.3em] opacity-60">Control de Blog y Contenidos
+                                </p>
+                            </div>
+                            <button onclick="closeAdmin()" class="text-white/50 hover:text-white transition-colors">
+                                <span class="material-symbols-outlined">close</span>
+                            </button>
+                        </div>
+
+                        <div class="p-12">
+                            <!-- Create New Post Form -->
+                            <div class="mb-16 border-b border-black/5 pb-16">
+                                <h3
+                                    class="text-sm uppercase font-bold tracking-widest mb-8 border-l-4 border-primary pl-4">
+                                    Nuevo Artículo</h3>
+                                <form id="blog-form" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                    <input type="text" id="post-title" placeholder="Título del artículo"
+                                        class="w-full bg-gray-50 border-none p-4 text-sm font-bold focus:ring-1 focus:ring-primary"
+                                        required>
+                                    <input type="text" id="post-category" placeholder="Categoría (Técnica, Estilo...)"
+                                        class="w-full bg-gray-50 border-none p-4 text-sm focus:ring-1 focus:ring-primary"
+                                        required>
+                                    <input type="text" id="post-image" placeholder="URL de la imagen (o ruta local)"
+                                        class="w-full bg-gray-50 border-none p-4 text-sm focus:ring-1 focus:ring-primary"
+                                        required>
+                                    <input type="text" id="post-excerpt" placeholder="Extracto corto"
+                                        class="w-full bg-gray-50 border-none p-4 text-sm focus:ring-1 focus:ring-primary"
+                                        required>
+                                    <textarea id="post-content"
+                                        placeholder="Escribe el contenido aquí (puedes usar <br> para párrafos)..."
+                                        class="col-span-full w-full bg-gray-50 border-none p-4 text-sm min-h-[150px] focus:ring-1 focus:ring-primary"
+                                        required></textarea>
+                                    <button type="submit"
+                                        class="col-span-full bg-brand-dark text-white py-4 uppercase text-[10px] font-black tracking-widest hover:bg-primary transition-all shadow-lg">Publicar
+                                        en el Blog</button>
+                                </form>
+                            </div>
+
+                            <!-- Manage Existing Posts -->
+                            <div>
+                                <h3
+                                    class="text-sm uppercase font-bold tracking-widest mb-8 border-l-4 border-gray-200 pl-4">
+                                    Gestionar Existentes</h3>
+                                <div id="admin-blog-list" class="space-y-4">
+                                    <!-- List injected by JS -->
+                                    <p class="text-xs text-gray-400 italic">Cargando artículos...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Blog Section -->
         <section class="py-32 px-6 md:px-12 bg-white" id="blog">
             <div class="max-w-7xl mx-auto">
@@ -528,6 +593,8 @@
                 <p>ELABORADO POR <a href="https://artintapps.com" target="_blank"
                         class="hover:text-primary transition-colors underline-offset-4 decoration-primary/30">ARTITAPPS
                         PERLA</a></p>
+                <button onclick="openAdmin()" class="opacity-30 hover:opacity-100 transition-opacity">ACCESO
+                    STAFF</button>
             </div>
         </div>
     </footer>
@@ -696,7 +763,57 @@
                     renderProducts();
                 }
             } catch (err) {
-                console.warn('Usando datos locales (Supabase no configurado o error):', err.message);
+                console.warn('Cargando productos locales (Fallback):', err.message);
+            }
+        }
+
+        async function fetchBlogFromSupabase() {
+            try {
+                const { data, error } = await _supabase
+                    .from('blog_posts')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+
+                if (error) throw error;
+                if (data && data.length > 0) {
+                    BLOG_DATA = data;
+                    renderBlog();
+                    renderAdminBlogList();
+                }
+            } catch (err) {
+                console.warn('Cargando blog local (Fallback):', err.message);
+                renderBlog();
+                renderAdminBlogList();
+            }
+        }
+
+        async function addBlogPost(post) {
+            try {
+                const { error } = await _supabase
+                    .from('blog_posts')
+                    .insert([post]);
+
+                if (error) throw error;
+                alert('¡Artículo publicado con éxito!');
+                fetchBlogFromSupabase();
+                document.getElementById('blog-form').reset();
+            } catch (err) {
+                alert('Error al publicar: ' + err.message);
+            }
+        }
+
+        async function deleteBlogPost(id) {
+            if (!confirm('¿Estás seguro de que quieres borrar este artículo?')) return;
+            try {
+                const { error } = await _supabase
+                    .from('blog_posts')
+                    .delete()
+                    .match({ id });
+
+                if (error) throw error;
+                fetchBlogFromSupabase();
+            } catch (err) {
+                alert('Error al borrar: ' + err.message);
             }
         }
 
@@ -1007,12 +1124,79 @@
             }, 500);
         }
 
+        // --- 7. ADMIN PANEL LOGIC ---
+        function openAdmin() {
+            const pass = prompt('Ingresa la clave de acceso Shexzit:');
+            if (pass === 'shexzit2024') {
+                const modal = document.getElementById('admin-modal');
+                const backdrop = document.getElementById('admin-backdrop');
+                const content = document.getElementById('admin-content');
+
+                modal.classList.remove('invisible');
+                setTimeout(() => {
+                    backdrop.classList.add('opacity-100');
+                    content.classList.add('opacity-100', 'translate-y-0');
+                }, 10);
+                document.body.style.overflow = 'hidden';
+            } else if (pass !== null) {
+                alert('Clave incorrecta');
+            }
+        }
+
+        function closeAdmin() {
+            const backdrop = document.getElementById('admin-backdrop');
+            const content = document.getElementById('admin-content');
+
+            backdrop.classList.remove('opacity-100');
+            content.classList.remove('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                document.getElementById('admin-modal').classList.add('invisible');
+                document.body.style.overflow = 'auto';
+            }, 500);
+        }
+
+        function renderAdminBlogList() {
+            const list = document.getElementById('admin-blog-list');
+            if (!list) return;
+
+            list.innerHTML = BLOG_DATA.map(post => `
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-sm hover:bg-gray-100 transition-colors">
+                    <div class="flex items-center gap-4">
+                        <img src="${post.image}" class="w-10 h-10 object-cover rounded-full">
+                        <div>
+                            <p class="text-[11px] font-bold uppercase tracking-tight">${post.title}</p>
+                            <p class="text-[9px] text-brand-grey uppercase">${post.category} • ${post.date || 'Reciente'}</p>
+                        </div>
+                    </div>
+                    <button onclick="deleteBlogPost('${post.id}')" class="text-red-400 hover:text-red-600 transition-colors p-2">
+                        <span class="material-symbols-outlined text-sm">delete</span>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        // Form Submission
+        document.getElementById('blog-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const newPost = {
+                title: document.getElementById('post-title').value,
+                category: document.getElementById('post-category').value,
+                image: document.getElementById('post-image').value,
+                excerpt: document.getElementById('post-excerpt').value,
+                content: document.getElementById('post-content').value,
+                date: new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })
+            };
+            addBlogPost(newPost);
+        });
+
         // Inicialización
         document.addEventListener('DOMContentLoaded', () => {
             renderProducts();
             renderBlog();
             updateCartUI();
-            fetchProductsFromSupabase(); // Intentar cargar desde la nube
+            fetchProductsFromSupabase(); // Cargar productos
+            fetchBlogFromSupabase(); // Cargar blog
 
             const viewAllBtn = document.getElementById('view-all-btn');
             if (viewAllBtn) {

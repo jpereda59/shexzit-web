@@ -151,6 +151,7 @@
             <a class="luxury-link opacity-60 hover:opacity-100 transition-opacity" href="#story">Historia</a>
             <a class="luxury-link opacity-60 hover:opacity-100 transition-opacity" href="#process">Proceso</a>
             <a class="luxury-link opacity-60 hover:opacity-100 transition-opacity" href="#collection">Colección</a>
+            <a class="luxury-link opacity-60 hover:opacity-100 transition-opacity" href="#blog">Blog</a>
             <a class="luxury-link opacity-60 hover:opacity-100 transition-opacity" href="#contact">Contacto</a>
         </nav>
 
@@ -408,6 +409,44 @@
             </div>
         </section>
 
+        <!-- Blog Section -->
+        <section class="py-32 px-6 md:px-12 bg-white" id="blog">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-24">
+                    <h2 class="text-sm uppercase tracking-[0.4em] font-medium text-primary mb-4 block font-sans">El
+                        Diario de Shexzit</h2>
+                    <h3 class="text-5xl md:text-7xl font-serif italic tracking-tighter">Crónicas del Tejido</h3>
+                </div>
+
+                <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <!-- Blog posts will be injected here -->
+                    <div class="skeleton h-80 rounded-sm"></div>
+                    <div class="skeleton h-80 rounded-sm"></div>
+                    <div class="skeleton h-80 rounded-sm"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Modal -->
+        <div id="blog-modal" class="fixed inset-0 z-[110] invisible">
+            <div id="blog-modal-backdrop"
+                class="absolute inset-0 bg-black/90 backdrop-blur-md opacity-0 transition-opacity duration-500"></div>
+            <div id="blog-modal-content"
+                class="absolute inset-0 overflow-y-auto translate-y-20 opacity-0 transition-all duration-500">
+                <div class="min-h-screen flex items-center justify-center p-6 py-24">
+                    <div class="max-w-4xl w-full bg-brand-beige rounded-sm overflow-hidden shadow-2xl relative">
+                        <button onclick="closeBlogModal()"
+                            class="absolute top-8 right-8 z-10 p-4 bg-white/10 backdrop-blur-md rounded-full text-brand-dark hover:bg-primary hover:text-white transition-all shadow-xl">
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
+                        <div id="blog-full-content">
+                            <!-- Article content here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Contact Section -->
         <section class="py-32 px-6 md:px-12 bg-white" id="contact">
             <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24">
@@ -611,6 +650,36 @@
                 price: 45,
                 image: 'catalogo%20de%20fotos/foto%201.jpg',
                 description: 'Tejido delicado que preserva la belleza de lo natural.'
+            }
+        ];
+
+        let BLOG_DATA = [
+            {
+                id: 'blog_1',
+                title: 'El Despertar del Micro-Nudo',
+                excerpt: 'Descubre la paciencia infinita detrás de cada una de nuestras piezas.',
+                content: 'El macramé no es solo técnica, es meditación. En Shexzit, cada micro-nudo representa un segundo de intención y calma. Cuando elegimos un hilo, no solo buscamos resistencia, buscamos una conexión entre la tierra y el diseño final. <br><br> Cada pieza de nuestra colección pasa por manos expertas que han dedicado años a perfeccionar el ángulo de cada nudo para que la caída de la joya sea perfecta sobre la piel.',
+                image: 'catalogo%20de%20fotos/foto%2032.jpg',
+                category: 'Técnica',
+                date: '8 Marzo, 2024'
+            },
+            {
+                id: 'blog_2',
+                title: 'Energía y Gemas',
+                excerpt: 'Cómo seleccionamos las piedras que darán vida a tu joyería.',
+                content: 'No todas las piedras son iguales. Buscamos gemas que no solo brillen, sino que resuenen con la persona que las llevará. La Amatista para la intuición, el Cuarzo para la claridad. <br><br> En este artículo te explicamos cómo limpiar tus piezas y cargar las piedras bajo la luz de la luna llena para que su energía se mantenga pura y alineada contigo.',
+                image: 'catalogo%20de%20fotos/foto%2010.jpg',
+                category: 'Espiritualidad',
+                date: '5 Marzo, 2024'
+            },
+            {
+                id: 'blog_3',
+                title: 'Sustentabilidad Real',
+                excerpt: 'Nuestro compromiso con el planeta a través de materiales orgánicos.',
+                content: 'El lujo puede ser responsable. Utilizamos hilos de algodón orgánico y ceras naturales que respetan el ciclo de la vida. Creemos en la moda lenta, en las piezas que duran toda la vida y no en el consumo efímero. <br><br> Cada vez que adquieres una pieza Shexzit, estás apoyando una cadena de suministro justa y artesanal.',
+                image: 'catalogo%20de%20fotos/foto%2045.jpg',
+                category: 'Estilo de Vida',
+                date: '1 Marzo, 2024'
             }
         ];
 
@@ -854,9 +923,94 @@
         document.getElementById('cart-close').addEventListener('click', closeCart);
         document.getElementById('cart-backdrop').addEventListener('click', closeCart);
 
+        // --- 6. BLOG LOGIC ---
+        function renderBlog() {
+            const grid = document.getElementById('blog-grid');
+            if (!grid) return;
+
+            grid.innerHTML = BLOG_DATA.map(post => `
+                <div class="group cursor-pointer animate-fade-in" onclick="openBlogModal('${post.id}')">
+                    <div class="aspect-[16/10] rounded-sm overflow-hidden mb-8 shadow-sm relative border border-black/5">
+                        <img src="${post.image}" alt="${post.title}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-brand-dark/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="text-white text-[10px] uppercase font-bold tracking-widest border border-white px-6 py-2">Leer Artículo</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-[9px] uppercase tracking-widest text-primary font-bold">${post.category}</span>
+                            <span class="w-8 h-[1px] bg-black/10"></span>
+                            <span class="text-[9px] uppercase tracking-widest text-brand-grey font-medium">${post.date}</span>
+                        </div>
+                        <h4 class="text-2xl font-serif italic mb-4 tracking-tight group-hover:text-primary transition-colors">${post.title}</h4>
+                        <p class="text-brand-grey text-sm font-light leading-relaxed mb-6 opacity-80">${post.excerpt}</p>
+                        <span class="luxury-link text-[10px] uppercase font-bold tracking-widest">Ver más</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function openBlogModal(postId) {
+            const post = BLOG_DATA.find(p => p.id === postId);
+            if (!post) return;
+
+            const modal = document.getElementById('blog-modal');
+            const backdrop = document.getElementById('blog-modal-backdrop');
+            const content = document.getElementById('blog-modal-content');
+            const fullContent = document.getElementById('blog-full-content');
+
+            fullContent.innerHTML = `
+                <div class="aspect-video w-full">
+                    <img src="${post.image}" class="w-full h-full object-cover">
+                </div>
+                <div class="p-12 md:p-24">
+                    <div class="flex items-center gap-4 mb-8">
+                        <span class="text-xs uppercase tracking-widest text-primary font-bold">${post.category}</span>
+                        <span class="w-12 h-[1px] bg-black/10"></span>
+                        <span class="text-xs uppercase tracking-widest text-brand-grey font-medium">${post.date}</span>
+                    </div>
+                    <h2 class="text-5xl md:text-7xl font-serif italic mb-12 tracking-tighter leading-none">${post.title}</h2>
+                    <div class="text-lg md:text-xl text-brand-dark/80 font-light leading-relaxed max-w-2xl font-sans">
+                        ${post.content}
+                    </div>
+                    <div class="mt-24 pt-12 border-t border-black/5 flex items-center gap-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden border border-black/10">
+                            <img src="Logo Shexzit.jpeg" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="text-[10px] uppercase font-bold tracking-widest">Escrito por</p>
+                            <p class="text-sm font-serif italic">Shexzit Arte</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('invisible');
+            setTimeout(() => {
+                backdrop.classList.add('opacity-100');
+                content.classList.add('opacity-100', 'translate-y-0');
+            }, 10);
+
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBlogModal() {
+            const backdrop = document.getElementById('blog-modal-backdrop');
+            const content = document.getElementById('blog-modal-content');
+
+            backdrop.classList.remove('opacity-100');
+            content.classList.remove('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                document.getElementById('blog-modal').classList.add('invisible');
+                document.body.style.overflow = 'auto';
+            }, 500);
+        }
+
         // Inicialización
         document.addEventListener('DOMContentLoaded', () => {
             renderProducts();
+            renderBlog();
             updateCartUI();
             fetchProductsFromSupabase(); // Intentar cargar desde la nube
 

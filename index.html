@@ -263,7 +263,7 @@
                         <!-- Video Card -->
                         <div
                             class="block relative aspect-[9/16] rounded-xl overflow-hidden mb-8 shadow-2xl group/video">
-                            <video src="catalogo%20de%20fotos/nudo.mp4" class="w-full h-full object-cover" autoplay
+                            <video src="catalogo%20de%20fotos/El%20nudo.mp4" class="w-full h-full object-cover" autoplay
                                 muted loop playsinline>
                             </video>
                             <div
@@ -768,40 +768,41 @@
 
             let total = 0;
             itemsContainer.innerHTML = cart.map(item => {
-                const subtotal = item.price * item.quantity;
+                const price = parseFloat(item.price) || 0;
+                const subtotal = price * item.quantity;
                 total += subtotal;
                 return `
-                    <div class="flex gap-6 group">
-                        <div class="w-24 h-24 bg-gray-100 rounded-sm overflow-hidden flex-shrink-0">
+                    <div class="flex gap-6 group items-center">
+                        <div class="w-20 h-20 bg-gray-100 rounded-sm overflow-hidden flex-shrink-0">
                             <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">
                         </div>
                         <div class="flex-1 flex flex-col justify-between py-1">
                             <div>
                                 <div class="flex justify-between">
-                                    <h4 class="text-[11px] font-serif font-bold italic tracking-tight">${item.name}</h4>
+                                    <h4 class="text-xs font-bold uppercase tracking-tight">${item.name}</h4>
                                     <button onclick="removeFromCart('${item.id}')" class="text-brand-grey/40 hover:text-red-500 transition-colors">
-                                        <span class="material-symbols-outlined text-sm font-light">close</span>
+                                        <span class="material-symbols-outlined text-sm">delete</span>
                                     </button>
                                 </div>
-                                <p class="text-[9px] text-brand-grey/60 uppercase tracking-widest mt-1">${item.category}</p>
+                                <p class="text-[9px] text-brand-grey/60 uppercase tracking-widest mt-1 font-sans">${item.category}</p>
                             </div>
-                            <div class="flex justify-between items-end">
-                                <div class="flex items-center space-x-3">
-                                    <button onclick="updateQuantity('${item.id}', -1)" class="w-6 h-6 rounded-full border border-black/5 flex items-center justify-center hover:bg-black/5 transition-colors">
-                                        <span class="material-symbols-outlined text-[10px]">remove</span>
+                            <div class="flex justify-between items-center mt-3">
+                                <div class="flex items-center space-x-3 bg-gray-50 rounded-full px-2 py-1">
+                                    <button onclick="updateQuantity('${item.id}', -1)" class="w-5 h-5 flex items-center justify-center hover:text-primary transition-colors">
+                                        <span class="material-symbols-outlined text-[12px]">remove</span>
                                     </button>
                                     <span class="text-[10px] font-bold font-sans">${item.quantity}</span>
-                                    <button onclick="updateQuantity('${item.id}', 1)" class="w-6 h-6 rounded-full border border-black/5 flex items-center justify-center hover:bg-black/5 transition-colors">
-                                        <span class="material-symbols-outlined text-[10px]">add</span>
+                                    <button onclick="updateQuantity('${item.id}', 1)" class="w-5 h-5 flex items-center justify-center hover:text-primary transition-colors">
+                                        <span class="material-symbols-outlined text-[12px]">add</span>
                                     </button>
                                 </div>
-                                <span class="text-sm font-light tracking-widest">$${subtotal}</span>
+                                <span class="text-sm font-bold tracking-tight">$${subtotal.toLocaleString()}</span>
                             </div>
                         </div>
                     </div>`;
             }).join('');
 
-            totalEl.innerText = `$${total}`;
+            totalEl.innerText = `$${total.toLocaleString()}`;
         }
 
         // --- 4. ANIMACIONES Y CONTROL DEL DRAWER ---
